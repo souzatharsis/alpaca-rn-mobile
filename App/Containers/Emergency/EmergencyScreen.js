@@ -55,7 +55,7 @@ class EmergencyScreen extends Component {
                         disabled={positions.length === 0}
 						onPress={() => this.props.navigation.navigate('Liquidation')}
 					/>
-                    <Text style={styles.label}>Pending Orders: {openOrders.length}</Text>
+                    <Text style={styles.label}>Open Orders: {openOrders.length}</Text>
                     <Button
                         style={styles.button}
                         label="CANCEL ALL"

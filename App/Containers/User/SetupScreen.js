@@ -4,7 +4,8 @@ import {
     Text,
     TextInput,
     StyleSheet,
-    AsyncStorage
+    AsyncStorage,
+    Linking
 } from 'react-native'
 import { connect } from 'react-redux'
 import RNPickerSelect from 'react-native-picker-select'
@@ -79,6 +80,17 @@ class SetupScreen extends Component {
         this.props.navigation.navigate('Tab')
     }
 
+    openURL = () => {
+        const signUpUrl = 'https://app.alpaca.markets/signup'
+        Linking.canOpenURL(signUpUrl).then(supported => {
+            if (supported) {
+                Linking.openURL(signUpUrl);
+            } else {
+                console.log("Don't know how to open URI: " + signUpUrl);
+            }
+        })
+    }
+
     render() {
         const { apiKey, secretKey, baseUrl, baseUrlItems } = this.state
 
@@ -140,6 +152,13 @@ class SetupScreen extends Component {
                     disabled={!apiKey || !secretKey || !baseUrl}
                     onPress={this.getStarted}
                 />
+                <Text style={[styles.label, { marginTop: 50 }]}>
+                    Please sign up first on the Alpaca website{" "}
+                    <Text style={styles.linkText} onPress={this.openURL}>
+                        (https://app.alpaca.markets/signup)
+                    </Text>
+                    {" "}and generate your API Key to use this app.
+                </Text>
             </View>
         )
     }
@@ -161,6 +180,10 @@ const styles = {
     button: {
         marginTop: 50,
     },
+    linkText: {
+        ...Fonts.style.h3,
+        textDecorationLine: 'underline',
+    }
 }
 
 const pickerSelectStyles = StyleSheet.create({
