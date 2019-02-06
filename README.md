@@ -1,6 +1,6 @@
 # Alpaca React Native Mobile App
-Alpaca is a modern platform for algorithmic trading
-
+Alpaca is a modern platform for algorithmic trading.
+This is an example React native mobile app to help you get started with Alpaca.
 
 ## Main technologies used
 
@@ -51,3 +51,9 @@ Comming soon...
 - Get API Key
 
 In order to start trading with Alpaca API, please sign up [here](https://alpaca.markets/).
+
+### Disclosures
+
+Brokerage services are provided by Alpaca Securities LLC ("Alpaca"), member FINRA/SIPC, a wholly-owned subsidiary of [AlpacaDB, Inc.](https://alpaca.markets).
+
+Please see the `DISCLOSURES` file in this repository for more information.
