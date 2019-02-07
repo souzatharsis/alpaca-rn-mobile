@@ -129,7 +129,7 @@ class TradeScreen extends Component {
     }
 
     renderBody = (value) => {
-        const { orderResult, postingOrder } = this.props
+        const { postingOrder } = this.props
         const {
             type, side, timeInForce,
             shares, limitPrice, stopPrice,
@@ -166,7 +166,11 @@ class TradeScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
+                <KeyboardAwareScrollView
+                    contentContainerStyle={{ flex: 1 }}
+                    keyboardShouldPersistTaps="handled"
+                    extraScrollHeight={110}
+                >
                     <TradeItem
                         label='Side'
                         items={sideItems}
@@ -227,22 +231,6 @@ class TradeScreen extends Component {
                             maxLength={20}
                         />
                     </View>
-                    {submitted && (
-                        <ScrollView style={styles.jsonData}>
-                            <Text>
-                                {JSON.stringify(orderResult, undefined, 4)}
-                            </Text>
-                        </ScrollView>
-                    )}
-                </KeyboardAwareScrollView>
-                {submitted ?
-                    <Button
-                        style={styles.button}
-                        label="Submitted!"
-                        color={Colors.COLOR_GRAY}
-                        labelColor={Colors.WHITE}
-                        height={50}
-                    /> :
                     <Button
                         style={styles.button}
                         label="Review Your Order"
@@ -253,7 +241,7 @@ class TradeScreen extends Component {
                         disabled={disabledSubmitBtn}
                         onPress={() => this.reviewOrder(value)}
                     />
-                }
+                </KeyboardAwareScrollView>
             </View>
         )
     }
