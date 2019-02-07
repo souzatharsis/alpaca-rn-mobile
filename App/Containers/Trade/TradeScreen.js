@@ -169,7 +169,7 @@ class TradeScreen extends Component {
                 <KeyboardAwareScrollView
                     contentContainerStyle={{ flex: 1 }}
                     keyboardShouldPersistTaps="handled"
-                    extraScrollHeight={110}
+                    extraScrollHeight={100}
                 >
                     <TradeItem
                         label='Side'
