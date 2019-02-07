@@ -1,6 +1,9 @@
 # Alpaca React Native Mobile App
 Alpaca is a modern platform for algorithmic trading.
+
 This is an example React native mobile app to help you get started with Alpaca.
+
+Please check the iOS app on [App store](https://itunes.apple.com/us/app/alpaca-dashboard/id1448888086?ls=1&mt=8).
 
 ## Main technologies used
 
@@ -11,6 +14,10 @@ This is an example React native mobile app to help you get started with Alpaca.
 - [Redux](http://redux.js.org/)
 
 > Redux is a predictable state container for JavaScript apps.
+
+- [Redux-Saga](https://github.com/redux-saga/redux-saga)
+
+> Redux-Saga is a library that aims to make application side effects easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
 ## Screenshot
 
@@ -54,6 +61,6 @@ In order to start trading with Alpaca API, please sign up [here](https://alpaca.
 
 ### Disclosures
 
-Brokerage services are provided by Alpaca Securities LLC ("Alpaca"), member FINRA/SIPC, a wholly-owned subsidiary of [AlpacaDB, Inc.](https://alpaca.markets).
+Brokerage services are provided by Alpaca Securities LLC ("Alpaca"), member FINRA/SIPC, a wholly-owned subsidiary of [AlpacaDB, Inc](https://alpaca.markets).
 
 Please see the `DISCLOSURES` file in this repository for more information.
