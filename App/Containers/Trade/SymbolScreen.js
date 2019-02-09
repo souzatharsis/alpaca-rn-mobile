@@ -20,8 +20,9 @@ import {
     getTodayStart,
     getTodayEnd,
     getYesterdayStart,
-    getYesterdayEnd
-} from '../../Util/Helper';
+    getYesterdayEnd,
+    size
+} from '../../Util/Helper'
 import NavigationIcon from '../../Components/NavigationIcon'
 import Button from '../../Components/Button'
 import OrderItem from '../Order/OrderItem';
@@ -168,8 +169,8 @@ const styles = {
         color: Colors.COLOR_DARK_RED,
     },
     positionContain: {
-        marginTop: 40,
-        marginBottom: 35
+        marginTop: size(40),
+        marginBottom: size(35)
     },
     rowContainer: {
         flexDirection: 'row',

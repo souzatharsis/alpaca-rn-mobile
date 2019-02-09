@@ -18,7 +18,7 @@ import NavigationIcon from '../../Components/NavigationIcon'
 import Button from '../../Components/Button'
 import SearchItem from './SearchItem'
 import KeyValueItem from './KeyValueItem'
-import { formatValue } from '../../Util/Helper'
+import { formatValue, size } from '../../Util/Helper'
 
 class TradeReviewScreen extends Component {
 
@@ -79,7 +79,7 @@ class TradeReviewScreen extends Component {
             content = (
                 <View style={{ flex: 1 }}>
                     <SearchItem
-                        style={{ marginBottom: 45 }}
+                        style={{ marginBottom: size(45) }}
                         item={value}
                         isLargeStyle
                     />
@@ -122,7 +122,7 @@ const styles = {
     ...ApplicationStyles.screen,
     container: {
         ...ApplicationStyles.screen.container,
-        marginTop: 30
+        marginTop: size(30)
     },
     h2: {
         ...Fonts.style.h2,
@@ -140,15 +140,15 @@ const styles = {
     },
     jsonData: {
         flex: 1,
-        marginTop: 20,
-        marginBottom: 70,
+        marginTop: size(20),
+        marginBottom: size(70),
         paddingLeft: 5,
         backgroundColor: Colors.COLOR_CORE_TEXT
     },
     orderDone: {
         position: 'absolute',
         top: 0,
-        bottom: 50,
+        bottom: size(50),
         left: 0,
         right: 0,
     },

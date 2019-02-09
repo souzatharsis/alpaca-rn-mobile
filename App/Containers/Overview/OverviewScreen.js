@@ -22,8 +22,9 @@ import {
     convert,
     formatValue,
     getTodayStart,
-    getTodayEnd
-} from '../../Util/Helper';
+    getTodayEnd,
+    size,
+} from '../../Util/Helper'
 import NavigationIcon from '../../Components/NavigationIcon'
 import Loading from '../../Components/Loading'
 
@@ -262,7 +263,7 @@ const styles = {
         color: Colors.COLOR_CORE_TEXT
     },
     section: {
-        marginTop: 40,
+        marginTop: size(40),
     },
     upText: {
         ...Fonts.style.h3,
@@ -283,9 +284,6 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    list: {
-        height: 125
-    }
 }
 
 const mapStateToProps = (state) => {

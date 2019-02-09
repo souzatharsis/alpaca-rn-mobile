@@ -1,7 +1,7 @@
 import Fonts from './Fonts'
 import Metrics from './Metrics'
 import Colors from './Colors'
-
+import { size } from '../Util/Helper'
 
 const ApplicationStyles = {
     screen: {
@@ -10,7 +10,7 @@ const ApplicationStyles = {
         },
         mainContainer: {
             flex: 1,
-            padding: 33
+            padding: size(33)
         },
         statusbar: {
             height: 0,
@@ -20,8 +20,8 @@ const ApplicationStyles = {
             flexDirection:'row'
         },
         navIcon: {
-            height: 27,
-            width: 27,
+            height: size(27),
+            width: size(27),
             resizeMode: 'contain',
             marginRight: Metrics.baseMargin,
             marginLeft: Metrics.baseMargin

@@ -16,6 +16,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import Button from '../../Components/Button'
 
 class SetupScreen extends Component {
@@ -152,7 +153,7 @@ class SetupScreen extends Component {
                     disabled={!apiKey || !secretKey || !baseUrl}
                     onPress={this.getStarted}
                 />
-                <Text style={[styles.label, { marginTop: 50 }]}>
+                <Text style={[styles.label, { marginTop: size(50) }]}>
                     Please sign up first on the Alpaca website{" "}
                     <Text style={styles.linkText} onPress={this.openURL}>
                         (https://app.alpaca.markets/signup)
@@ -168,17 +169,17 @@ const styles = {
     ...ApplicationStyles.screen,
     rowContainer: {
         flexDirection: 'column',
-        marginTop: 30
+        marginTop: size(30)
     },
     inputText: {
         width: null,
-        height: 40,
+        height: size(40),
         borderBottomColor: Colors.COLOR_GOLD,
         borderBottomWidth: 1,
         color: Colors.COLOR_GOLD
     },
     button: {
-        marginTop: 50,
+        marginTop: size(50),
     },
     linkText: {
         ...Fonts.style.h3,
@@ -189,7 +190,7 @@ const styles = {
 const pickerSelectStyles = StyleSheet.create({
     inputIOS: {
         width: null,
-        fontSize: 16,
+        fontSize: size(16),
         paddingTop: 10,
         paddingBottom: 10,
         borderBottomColor: Colors.COLOR_GOLD,
@@ -198,7 +199,7 @@ const pickerSelectStyles = StyleSheet.create({
         color: Colors.COLOR_GOLD,
     },
     inputAndroid: {
-        fontSize: 16,
+        fontSize: size(16),
         paddingTop: 13,
         paddingHorizontal: 10,
         paddingBottom: 12,

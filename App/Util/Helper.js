@@ -1,6 +1,20 @@
+import { Platform } from 'react-native'
 import moment from 'moment-timezone'
 import _ from 'lodash'
-import { showMessage, hideMessage } from "react-native-flash-message";
+import { showMessage, hideMessage } from "react-native-flash-message"
+import Dimensions from 'Dimensions'
+
+const { width } = Dimensions.get('window')
+
+/**
+ * Recalculate size based on screen resolution
+ */
+export const size = (size) => {
+    const normalWidth = Platform.isPad ? 768 : 375
+    const ratio = normalWidth / width
+
+    return Math.ceil(size / ratio)
+}
 
 /**
  * Capitalize first character of string

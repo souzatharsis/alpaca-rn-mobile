@@ -15,6 +15,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import Button from '../../Components/Button'
 import NavigationIcon from '../../Components/NavigationIcon'
 
@@ -63,7 +64,7 @@ class EmergencyScreen extends Component {
 						onPress={() => this.props.navigation.navigate('CancelOrder')}
 					/>
                     <Text
-                        style={[styles.label, { marginTop: 30 }]}
+                        style={[styles.label, { marginTop: size(30) }]}
                         onPress={() => this.props.navigation.navigate('Disclosure')}
                     >
                         Disclosures
@@ -78,15 +79,15 @@ const styles = {
     ...ApplicationStyles.screen,
     mainContainer: {
         flex: 1,
-        padding: 75
+        padding: size(75)
     },
     label: {
         ...Fonts.style.h3,
         color: Colors.COLOR_GRAY,
-        marginBottom: 8
+        marginBottom: size(8)
     },
     button: {
-        marginBottom: 25,
+        marginBottom: size(25),
 	},
 }
 
