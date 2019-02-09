@@ -14,7 +14,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
-import { convert, formatValue } from '../../Util/Helper';
+import { convert, formatValue, size } from '../../Util/Helper'
 
 class SearchItem extends Component {
 
@@ -101,7 +101,7 @@ const styles = {
     },
     rowContainer: {
         flexDirection: 'row',
-        height: 50,
+        height: size(50),
         marginBottom: 10,
     },
     valueContainer: {

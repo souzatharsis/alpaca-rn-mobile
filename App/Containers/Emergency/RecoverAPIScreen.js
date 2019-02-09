@@ -13,6 +13,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import Button from '../../Components/Button'
 import NavigationIcon from '../../Components/NavigationIcon'
 
@@ -73,7 +74,7 @@ class RecoverAPIScreen extends Component {
                     <Text style={styles.h1}>
                         Recovering Your API
                     </Text>
-                    <Text style={[styles.h3, { marginTop: 20 }]}>
+                    <Text style={[styles.h3, { marginTop: size(20) }]}>
                         You are recovering your API. This will resume new orders to come in to the system.
                     </Text>
                     <Button
@@ -93,7 +94,7 @@ class RecoverAPIScreen extends Component {
                     <Text style={styles.label}>
                         API Recovery Submitted
                     </Text>
-                    <Text style={[styles.h3, { marginTop: 66 }]}>
+                    <Text style={[styles.h3, { marginTop: size(66) }]}>
                         Now, you have recovered your API.
                     </Text>
                     <Button

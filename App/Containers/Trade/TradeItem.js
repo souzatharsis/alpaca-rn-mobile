@@ -12,6 +12,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 
 class TradeItem extends Component {
 
@@ -77,8 +78,8 @@ const styles = {
 
 const pickerSelectStyles = StyleSheet.create({
     inputIOS: {
-        width: 130,
-        fontSize: 16,
+        width: size(130),
+        fontSize: size(16),
         paddingTop: 10,
         paddingBottom: 10,
         borderBottomColor: Colors.COLOR_GOLD,

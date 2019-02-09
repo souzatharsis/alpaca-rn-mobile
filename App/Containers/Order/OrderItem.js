@@ -13,7 +13,8 @@ import {
 } from '../../Themes'
 import {
     capitalize,
-    changeTimeFormat
+    changeTimeFormat,
+    size
 } from '../../Util/Helper'
 
 class OrderItem extends Component {
@@ -25,7 +26,7 @@ class OrderItem extends Component {
 
         return (
             <TouchableOpacity
-                style={{ marginBottom: 10 }}
+                style={{ marginBottom: size(10) }}
                 activeOpacity={0.9}
                 onPress={onPress}
             >
@@ -63,16 +64,16 @@ const styles = {
     },
     h3: {
         ...Fonts.style.h3,
-        fontSize: 14,
+        fontSize: size(14),
         color: Colors.BLACK
     },
     actionLabel: {
         ...Fonts.style.h3,
         color: Colors.BLACK,
         backgroundColor: Colors.COLOR_LIGHT_YELLOW,
-        paddingLeft: 5,
-        paddingRight: 5,
-        borderRadius: 7,
+        paddingLeft: size(5),
+        paddingRight: size(5),
+        borderRadius: size(7),
         overflow: 'hidden',
     },
     rowContainer: {

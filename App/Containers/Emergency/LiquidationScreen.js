@@ -15,6 +15,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import Button from '../../Components/Button'
 import NavigationIcon from '../../Components/NavigationIcon'
 
@@ -199,13 +200,13 @@ const styles = {
     },
     jsonData: {
         flex: 1,
-        marginTop: 20,
-        marginBottom: 70,
+        marginTop: size(20),
+        marginBottom: size(70),
         padding: 7,
         backgroundColor: Colors.COLOR_CORE_TEXT
     },
     scroll: {
-        marginBottom: 60
+        marginBottom: size(60)
     },
     linkText: {
         ...Fonts.style.h3,

@@ -14,6 +14,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import Button from '../../Components/Button'
 import NavigationIcon from '../../Components/NavigationIcon'
 
@@ -75,7 +76,7 @@ class CancelOrderScreen extends Component {
                         Cancelling{"\n"}
                         All Open Orders
                     </Text>
-                    <Text style={[styles.h3, { marginTop: 20 }]}>
+                    <Text style={[styles.h3, { marginTop: size(20) }]}>
                         You are cancelling all open orders.{"\n\n"}
                         You currently have {openOrders.length} open orders.
                     </Text>
@@ -150,8 +151,8 @@ const styles = {
     },
     list: {
         flex: 1,
-        marginTop: 20,
-        marginBottom: 70,
+        marginTop: size(20),
+        marginBottom: size(70),
         paddingLeft: 5,
         paddingTop: 10,
         backgroundColor: Colors.COLOR_CORE_TEXT

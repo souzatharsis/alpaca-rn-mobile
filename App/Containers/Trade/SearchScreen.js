@@ -17,7 +17,8 @@ import {
     getTodayStart,
     getTodayEnd,
     getYesterdayStart,
-    getYesterdayEnd
+    getYesterdayEnd,
+    size
 } from '../../Util/Helper'
 import SearchItem from './SearchItem'
 import NavigationIcon from '../../Components/NavigationIcon'
@@ -133,7 +134,7 @@ const styles = {
     },
     searchInput: {
         flex: 1,
-        height: 40,
+        height: size(40),
         borderBottomColor: 'rgba(0, 0, 0, 0.5)',
         borderBottomWidth: 1,
     },
@@ -143,7 +144,7 @@ const styles = {
     },
     list: {
         flex: 1,
-        marginTop: 30,
+        marginTop: size(30),
         paddingRight: 10
     }
 }

@@ -13,6 +13,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import Button from '../../Components/Button'
 import NavigationIcon from '../../Components/NavigationIcon'
 
@@ -73,7 +74,7 @@ class SuspendAPIScreen extends Component {
                     <Text style={styles.h1}>
                         Suspending Your API
                     </Text>
-                    <Text style={[styles.h3, { marginTop: 20 }]}>
+                    <Text style={[styles.h3, { marginTop: size(20) }]}>
                         You are suspending your API. This will stop any new orders to come in to the system.{"\n\n"}
                         After suspending your API, you can recover it by clicking “RECOVER API” on Emergency tab.
                     </Text>

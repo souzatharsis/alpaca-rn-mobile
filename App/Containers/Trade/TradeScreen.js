@@ -16,6 +16,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import OrdersActions from '../../Redux/OrdersRedux'
 import NavigationIcon from '../../Components/NavigationIcon'
 import Button from '../../Components/Button'
@@ -268,7 +269,7 @@ const styles = {
     ...ApplicationStyles.screen,
     container: {
         ...ApplicationStyles.screen.container,
-        marginTop: 30
+        marginTop: size(30)
     },
     h2: {
         ...Fonts.style.h2,
@@ -292,19 +293,19 @@ const styles = {
     },
     value: {
         ...Fonts.style.h3,
-        fontSize: 19,
+        fontSize: size(19),
         color: Colors.COLOR_GOLD
     },
     jsonData: {
         flex: 1,
         marginTop: 10,
-        marginBottom: 60,
+        marginBottom: size(60),
         paddingLeft: 5,
         backgroundColor: 'rgb(207, 207, 207)'
     },
     inputText: {
-        width: 130,
-        height: 40,
+        width: size(130),
+        height: size(40),
         borderBottomColor: Colors.COLOR_GOLD,
         borderBottomWidth: 1,
         color: Colors.COLOR_GOLD

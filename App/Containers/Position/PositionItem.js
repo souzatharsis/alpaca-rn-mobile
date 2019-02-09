@@ -11,7 +11,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
-import { convert, formatValue } from '../../Util/Helper';
+import { convert, formatValue, size } from '../../Util/Helper';
 
 class PositionItem extends Component {
 
@@ -24,7 +24,7 @@ class PositionItem extends Component {
 
         return (
             <TouchableOpacity
-                style={{ marginBottom: 10 }}
+                style={{ marginBottom: size(10) }}
                 activeOpacity={0.9}
                 onPress={onPress}
             >

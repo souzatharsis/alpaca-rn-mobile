@@ -9,6 +9,7 @@ import {
     Metrics,
     Fonts
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 import PositionItem from './PositionItem'
 import NavigationIcon from '../../Components/NavigationIcon'
 
@@ -66,7 +67,7 @@ const styles = {
     ...ApplicationStyles.screen,
     list: {
         flex: 1,
-        marginTop: 40,
+        marginTop: size(40),
         paddingRight: 5
     }
 }
