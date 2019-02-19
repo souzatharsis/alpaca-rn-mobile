@@ -106,6 +106,7 @@ class SetupScreen extends Component {
                         onChangeText={(text) => this.setState({ apiKey: text })}
                         value={apiKey}
                         autoCorrect={false}
+                        underlineColorAndroid='transparent'
                         maxLength={100}
                     />
                 </View>
@@ -118,6 +119,7 @@ class SetupScreen extends Component {
                         onChangeText={(text) => this.setState({ secretKey: text })}
                         value={secretKey}
                         autoCorrect={false}
+                        underlineColorAndroid='transparent'
                         maxLength={100}
                     />
                 </View>
@@ -137,7 +139,8 @@ class SetupScreen extends Component {
                                 baseUrl: value,
                             })
                         }}
-                        style={{ ...pickerSelectStyles }}
+                        style={pickerSelectStyles}
+                        useNativeAndroidPickerStyle={false}
                         value={baseUrl}
                         ref={(el) => {
                             this.inputRefs.picker = el
@@ -200,14 +203,12 @@ const pickerSelectStyles = StyleSheet.create({
     },
     inputAndroid: {
         fontSize: size(16),
-        paddingTop: 13,
-        paddingHorizontal: 10,
-        paddingBottom: 12,
-        borderWidth: 1,
-        borderColor: 'gray',
-        borderRadius: 4,
+        paddingTop: 10,
+        paddingBottom: 10,
+        borderBottomColor: Colors.COLOR_GOLD,
+        borderBottomWidth: 1,
         backgroundColor: 'white',
-        color: 'black',
+        color: Colors.COLOR_GOLD,
     },
 })
 

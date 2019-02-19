@@ -171,6 +171,7 @@ class TradeScreen extends Component {
                     contentContainerStyle={{ flex: 1 }}
                     keyboardShouldPersistTaps="handled"
                     extraScrollHeight={100}
+                    enableOnAndroid={true}
                 >
                     <TradeItem
                         label='Side'
@@ -188,6 +189,7 @@ class TradeScreen extends Component {
                             value={shares}
                             keyboardType='number-pad'
                             autoCorrect={false}
+                            underlineColorAndroid='transparent'
                             editable={!submitted}
                             maxLength={20}
                         />
@@ -214,6 +216,7 @@ class TradeScreen extends Component {
                             value={limitPrice}
                             keyboardType='decimal-pad'
                             autoCorrect={false}
+                            underlineColorAndroid='transparent'
                             editable={_limitPriceEditable}
                             maxLength={20}
                         />
@@ -228,6 +231,7 @@ class TradeScreen extends Component {
                             value={stopPrice}
                             keyboardType='decimal-pad'
                             autoCorrect={false}
+                            underlineColorAndroid='transparent'
                             editable={_stopPriceEditable}
                             maxLength={20}
                         />
