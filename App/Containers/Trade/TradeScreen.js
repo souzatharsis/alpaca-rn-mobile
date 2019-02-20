@@ -171,7 +171,7 @@ class TradeScreen extends Component {
                     contentContainerStyle={{ flex: 1 }}
                     keyboardShouldPersistTaps="handled"
                     extraScrollHeight={100}
-                    enableOnAndroid={true}
+                    enableOnAndroid={false}
                 >
                     <TradeItem
                         label='Side'
@@ -187,7 +187,7 @@ class TradeScreen extends Component {
                             style={inputTxtStyle}
                             onChangeText={(text) => this.setState({ shares: text })}
                             value={shares}
-                            keyboardType='number-pad'
+                            keyboardType='numeric'
                             autoCorrect={false}
                             underlineColorAndroid='transparent'
                             editable={!submitted}
@@ -214,7 +214,7 @@ class TradeScreen extends Component {
                             style={inputTxtStyle}
                             onChangeText={(text) => this.setState({ limitPrice: text })}
                             value={limitPrice}
-                            keyboardType='decimal-pad'
+                            keyboardType='numeric'
                             autoCorrect={false}
                             underlineColorAndroid='transparent'
                             editable={_limitPriceEditable}
@@ -229,7 +229,7 @@ class TradeScreen extends Component {
                             style={inputTxtStyle}
                             onChangeText={(text) => this.setState({ stopPrice: text })}
                             value={stopPrice}
-                            keyboardType='decimal-pad'
+                            keyboardType='numeric'
                             autoCorrect={false}
                             underlineColorAndroid='transparent'
                             editable={_stopPriceEditable}
