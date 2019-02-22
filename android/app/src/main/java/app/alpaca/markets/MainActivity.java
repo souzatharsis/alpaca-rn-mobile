@@ -1,4 +1,4 @@
-package com.mobileapp;
+package app.alpaca.markets;
 
 import com.facebook.react.ReactActivity;
 
