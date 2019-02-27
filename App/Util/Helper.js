@@ -10,7 +10,12 @@ const { width } = Dimensions.get('window')
  * Recalculate size based on screen resolution
  */
 export const size = (size) => {
-    const normalWidth = Platform.isPad ? 768 : 375
+    let normalWidth
+    if (Platform.OS === 'ios') {
+        normalWidth = Platform.isPad ? 768 : 375
+    } else if (Platform.OS === 'android') {
+        normalWidth = 411
+    }
     const ratio = normalWidth / width
 
     return Math.ceil(size / ratio)
@@ -76,10 +81,29 @@ export const convert = (value, percent = false) => {
  * return example: 1,256,23.56
  */
 export const formatValue = (value) => {
-    return parseFloat(value).toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    })
+    if (Platform.OS === 'ios') {
+        return parseFloat(value).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        })
+    } else if (Platform.OS === 'android') {
+        let temp = parseFloat(value).toFixed(2)
+        return commafy(temp)
+    }
+}
+
+/**
+ * Add comma every 3 digits
+ */
+export const commafy = (num) => {
+    var str = num.toString().split('.')
+    if (str[0].length >= 5) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,')
+    }
+    if (str[1] && str[1].length >= 5) {
+        str[1] = str[1].replace(/(\d{3})/g, '$1 ')
+    }
+    return str.join('.')
 }
 
 /**

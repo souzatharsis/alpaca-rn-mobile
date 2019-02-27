@@ -47,8 +47,10 @@ class TradeItem extends Component {
                         onValueChange(value)
                     }}
                     style={{
-                        inputIOS: [pickerSelectStyles.inputIOS, { color: disabled ? Colors.COLOR_GRAY : Colors.COLOR_GOLD }]
+                        inputIOS: [pickerSelectStyles.inputIOS, { color: disabled ? Colors.COLOR_GRAY : Colors.COLOR_GOLD }],
+                        inputAndroid: [pickerSelectStyles.inputAndroid, { color: disabled ? Colors.COLOR_GRAY : Colors.COLOR_GOLD }]
                     }}
+                    useNativeAndroidPickerStyle={false}
                     value={this.state.selectedValue}
                     ref={(el) => {
                         this.inputRefs.picker = el
@@ -88,15 +90,14 @@ const pickerSelectStyles = StyleSheet.create({
         color: Colors.COLOR_GOLD,
     },
     inputAndroid: {
-        fontSize: 16,
-        paddingTop: 13,
-        paddingHorizontal: 10,
-        paddingBottom: 12,
-        borderWidth: 1,
-        borderColor: 'gray',
-        borderRadius: 4,
+        width: size(130),
+        fontSize: size(16),
+        paddingTop: 10,
+        paddingBottom: 10,
+        borderBottomColor: Colors.COLOR_GOLD,
+        borderBottomWidth: 1,
         backgroundColor: 'white',
-        color: 'black',
+        color: Colors.COLOR_GOLD,
     },
 });
 
