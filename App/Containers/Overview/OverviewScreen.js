@@ -61,7 +61,7 @@ class OverviewScreen extends Component {
 
         getAccount() // Get account info
         getOrders('closed', `after=${getTodayStart()}&until=${getTodayEnd()}`) // Get closed orders of today
-        getOrders('open', `after=${getTodayStart()}&until=${getTodayEnd()}`) // Get open orders of today
+        getOrders('open', '') // Get all open orders regardless of when they were submitted
         getPositions(showLoading) // Get positions
     }
 
