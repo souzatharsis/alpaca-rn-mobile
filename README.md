@@ -3,7 +3,7 @@ Alpaca is a modern platform for algorithmic trading.
 
 This is an example React native mobile app to help you get started with Alpaca.
 
-Please check the iOS app on [App store](https://itunes.apple.com/us/app/alpaca-dashboard/id1448888086?ls=1&mt=8).
+You can find apps on [App store](https://itunes.apple.com/us/app/alpaca-dashboard/id1448888086?ls=1&mt=8) and [Google play store](https://play.google.com/store/apps/details?id=app.alpaca.markets).
 
 ## Main technologies used
 
@@ -52,7 +52,7 @@ react-native run-ios
 
 - Run Android
 ```
-Comming soon...
+react-native run-android
 ```
 
 - Get API Key
