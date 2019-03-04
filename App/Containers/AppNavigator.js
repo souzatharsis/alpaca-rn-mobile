@@ -3,6 +3,7 @@ import React from 'react'
 
 import MainScreen from './MainScreen'
 import SetupScreen from './User/SetupScreen'
+import RegisterScreen from './User/RegisterScreen'
 import SearchScreen from './Trade/SearchScreen'
 import SymbolScreen from './Trade/SymbolScreen'
 import TradeScreen from './Trade/TradeScreen'
@@ -100,6 +101,19 @@ const EmergencyStack = createStackNavigator(
     }
 )
 
+const RegisterStack = createStackNavigator(
+    {
+        Register: RegisterScreen,
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: Colors.COLOR_NAV_HEADER,
+            },
+        },
+    }
+)
+
 const TabStack = createBottomTabNavigator(
     {
         Overview: OverviewStack,
@@ -138,6 +152,7 @@ const TabStack = createBottomTabNavigator(
 const AppNavigator = createStackNavigator(
     {
         Setup: SetupScreen,
+        Register: RegisterStack,
         Tab: TabStack,
     },
     {

@@ -1,15 +1,36 @@
 import React, { Component } from 'react'
 import {
     View,
+    Text
 } from 'react-native'
-import { connect } from 'react-redux'
 import { WebView } from "react-native-webview"
 
 import {
     ApplicationStyles,
 } from '../../Themes'
+import { size } from '../../Util/Helper'
 
 class RegisterScreen extends Component {
+    static navigationOptions = (props) => {
+        return {
+            headerLeft: (
+                <Text
+                    style={styles.navButton}
+                    onPress={() => props.navigation.pop()}
+                >
+                    Cancel
+                </Text>
+            ),
+            headerRight: (
+                <Text
+                    style={styles.navButton}
+                    onPress={() => props.navigation.pop()}
+                >
+                    Done
+                </Text>
+            ),
+        }
+    }
 
     render() {
 
@@ -17,7 +38,7 @@ class RegisterScreen extends Component {
             <View style={styles.container}>
                 <WebView
                     source={{ uri: "https://app.alpaca.markets/signup" }}
-                    style={{ marginTop: 20 }}
+                    style={{ flex: 1 }}
                     onLoadProgress={e => console.log(e.nativeEvent.progress)}
                 />
             </View>
@@ -27,11 +48,11 @@ class RegisterScreen extends Component {
 
 const styles = {
     ...ApplicationStyles.screen,
+    navButton: {
+        padding: 10,
+        color: 'white',
+        fontSize: size(18),
+    },
 }
 
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, null)(RegisterScreen)
+export default RegisterScreen
