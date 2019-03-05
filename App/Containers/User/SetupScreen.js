@@ -158,7 +158,7 @@ class SetupScreen extends Component {
                 />
                 <Text style={[styles.label, { marginTop: size(50) }]}>
                     Please sign up first on the Alpaca website{" "}
-                    <Text style={styles.linkText} onPress={this.openURL}>
+                    <Text style={styles.linkText} onPress={() => this.props.navigation.navigate('Register')}>
                         (https://app.alpaca.markets/signup)
                     </Text>
                     {" "}and generate your API Key to use this app.
