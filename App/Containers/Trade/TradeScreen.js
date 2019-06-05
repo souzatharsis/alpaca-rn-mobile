@@ -16,7 +16,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
-import { size } from '../../Util/Helper'
+import { size, showAlertMessage } from '../../Util/Helper'
 import OrdersActions from '../../Redux/OrdersRedux'
 import NavigationIcon from '../../Components/NavigationIcon'
 import Button from '../../Components/Button'
@@ -93,6 +93,12 @@ class TradeScreen extends Component {
 
     reviewOrder = (value) => {
         const { shares, limitPrice, stopPrice, side, type, timeInForce } = this.state
+        const { openOrders, positions} = this.props
+
+        if (positions.length === 0 && openOrders.length > 0) {
+            showAlertMessage("You are not permitted to submit a order", "danger")
+            return
+        }
 
         let orderData = {
             symbol: value.symbol,
@@ -322,6 +328,8 @@ const mapStateToProps = (state) => {
         orderResult: state.orders.orderResult,
         bars: state.assets.bars,
         preBars: state.assets.preBars,
+        openOrders: state.orders.openOrders,
+        positions: state.positions.positions
     }
 }
 
