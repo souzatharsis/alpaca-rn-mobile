@@ -93,12 +93,6 @@ class TradeScreen extends Component {
 
     reviewOrder = (value) => {
         const { shares, limitPrice, stopPrice, side, type, timeInForce } = this.state
-        const { openOrders, positions} = this.props
-
-        if (positions.length === 0 && openOrders.length > 0) {
-            showAlertMessage("You are not permitted to submit a order", "danger")
-            return
-        }
 
         let orderData = {
             symbol: value.symbol,
@@ -334,7 +328,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    postOrder: data => dispatch(OrdersActions.postOrderAttempt(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeScreen)

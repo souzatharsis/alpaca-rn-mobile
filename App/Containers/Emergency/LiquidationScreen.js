@@ -227,7 +227,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        postOrder: data => dispatch(OrdersActions.postOrderAttempt(data)),
+        postOrder: data => dispatch(OrdersActions.postOrderAttempt(data, 'group')),
         resetOrderStatus: () => dispatch(OrdersActions.resetOrderStatus())
     }
 }

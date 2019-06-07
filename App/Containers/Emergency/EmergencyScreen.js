@@ -104,9 +104,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        cancelOrder: order_id => dispatch(OrdersActions.cancelOrderAttempt(order_id)),
-        postOrder: data => dispatch(OrdersActions.postOrderAttempt(data)),
-        configureAccount: data => dispatch(AccountActions.configureAccountAttempt(data))
     }
 }
 

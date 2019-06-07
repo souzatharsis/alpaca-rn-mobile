@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
     cancelOrderAttempt: ['order_id'],
     cancelOrderSuccess: null,
     cancelOrderFailure: ['error'],
-    postOrderAttempt: ['data'],
+    postOrderAttempt: ['data', 'order_type'],
     postOrderSuccess: ['data'],
     postOrderFailure: ['error'],
     resetOrderStatus: null

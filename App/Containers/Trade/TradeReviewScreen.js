@@ -162,7 +162,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    postOrder: data => dispatch(OrdersActions.postOrderAttempt(data)),
+    postOrder: data => dispatch(OrdersActions.postOrderAttempt(data, 'single')),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeReviewScreen)

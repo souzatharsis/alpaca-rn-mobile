@@ -152,10 +152,10 @@ class OverviewScreen extends Component {
             <View style={styles.container}>
                 <View style={styles.mainContainer}>
                     <Text style={styles.label}>
-                        Portfolio Value
+                        Equity
                     </Text>
                     <Text style={styles.h1}>
-                        ${account && account.portfolio_value && formatValue(account.portfolio_value)}
+                        ${account && account.equity && formatValue(account.equity)}
                     </Text>
                     {/* <Text style={[styles.h3, { color: portfolioSumColor }]}>
                         {convert(positionSum)}
