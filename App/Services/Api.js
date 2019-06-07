@@ -33,13 +33,13 @@ const create = (baseURL = config.BASE_URL) => {
             'APCA-API-SECRET-KEY': secretKey,
         })
     }
-    const getAccount = () => api.get('v1/account')
-    const configureAccount = data => api.patch('v1/account/configurations', data)
-    const getOrders = (status, params) => api.get(`v1/orders?status=${status}&direction=desc&${params}`)
-    const cancelOrder = order_id => api.delete(`v1/orders/${order_id}`)
-    const postOrder = data => api.post('v1/orders', data)
-    const getPositions = () => api.get('v1/positions')
-    const getAssets = () => api.get('v1/assets?status=active')
+    const getAccount = () => api.get('v2/account')
+    const configureAccount = data => api.patch('v2/account/configurations', data)
+    const getOrders = (status, params) => api.get(`v2/orders?status=${status}&direction=desc&${params}`)
+    const cancelOrder = order_id => api.delete(`v2/orders/${order_id}`)
+    const postOrder = data => api.post('v2/orders', data)
+    const getPositions = () => api.get('v2/positions')
+    const getAssets = () => api.get('v2/assets?status=active')
     const getBars = (timeframe, symbols, start, end) => dataApi.get(`v1/bars/${timeframe}?symbols=${symbols}&limit=2`)
 
     return {

@@ -36,17 +36,21 @@ export function* cancelOrderAttempt(api, action) {
 }
 
 export function* postOrderAttempt(api, action) {
-    const { data } = action
+    const { data, order_type } = action
     try {
         const response = yield call(api.postOrder, data)
         if (response.ok) {
-            // showAlertMessage("Post order success", "success")
+            if (order_type === 'single') {
+                showAlertMessage("Post order success", "success")
+            }
             yield put(OrdersActions.postOrderSuccess(response.data))
             yield put(OrdersActions.getOrdersAttempt('closed', `after=${getTodayStart()}&until=${getTodayEnd()}`))
             yield put(OrdersActions.getOrdersAttempt('open', `after=${getTodayStart()}&until=${getTodayEnd()}`))
         } else {
             const message = response.data.message || 'Something went wrong'
-            // showAlertMessage(message, "danger")
+            if (order_type === 'single') {
+                showAlertMessage(message, "danger")
+            }
             yield put(OrdersActions.postOrderFailure(message))
         }
     } catch (error) {

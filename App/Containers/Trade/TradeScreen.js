@@ -16,7 +16,7 @@ import {
     Colors,
     Fonts
 } from '../../Themes'
-import { size } from '../../Util/Helper'
+import { size, showAlertMessage } from '../../Util/Helper'
 import OrdersActions from '../../Redux/OrdersRedux'
 import NavigationIcon from '../../Components/NavigationIcon'
 import Button from '../../Components/Button'
@@ -322,11 +322,12 @@ const mapStateToProps = (state) => {
         orderResult: state.orders.orderResult,
         bars: state.assets.bars,
         preBars: state.assets.preBars,
+        openOrders: state.orders.openOrders,
+        positions: state.positions.positions
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    postOrder: data => dispatch(OrdersActions.postOrderAttempt(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeScreen)
