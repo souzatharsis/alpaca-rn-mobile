@@ -53,7 +53,7 @@ class OverviewScreen extends Component {
     componentDidMount() {
         this.props.getAssets() // Get assets
         this.getData()
-        this.timer = setInterval(() => this.getData(false), 30000) // Refresh data every 30 seconds
+        this.timer = setInterval(() => this.getData(false), 10000) // Refresh data every 10 seconds
     }
 
     async getData(showLoading = true) {
