@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import dismissKeyboard from 'react-native-dismiss-keyboard'
+import CheckBox from 'react-native-check-box'
 
 import {
     ApplicationStyles,
@@ -35,6 +36,7 @@ class TradeScreen extends Component {
         submitted: false,
         stopPriceEditable: false,
         limitPriceEditable: false,
+        isChecked: false,
         sideItems: [
             {
                 label: 'Buy',
@@ -92,7 +94,8 @@ class TradeScreen extends Component {
     }
 
     reviewOrder = (value) => {
-        const { shares, limitPrice, stopPrice, side, type, timeInForce } = this.state
+        const { shares, limitPrice, stopPrice, side, type, timeInForce, isChecked } = this.state
+        const isExtenedHoursEnabled = type === 'limit' && timeInForce === 'day';
 
         let orderData = {
             symbol: value.symbol,
@@ -100,6 +103,7 @@ class TradeScreen extends Component {
             type,
             time_in_force: timeInForce,
             side,
+            extended_hours: isChecked && isExtenedHoursEnabled
         }
 
         if (limitPrice) {
@@ -164,6 +168,8 @@ class TradeScreen extends Component {
             ...styles.inputText,
             color: submitted ? Colors.COLOR_GRAY : Colors.COLOR_GOLD
         }
+
+        const isExtenedHoursEnabled = type === 'limit' && timeInForce === 'day';
 
         return (
             <View style={styles.container}>
@@ -236,6 +242,15 @@ class TradeScreen extends Component {
                             maxLength={20}
                         />
                     </View>
+                    <CheckBox
+                        style={{ marginTop: 10, opacity: isExtenedHoursEnabled ? 1 : 0 }}
+                        rightText={"Extended Hours"}
+                        rightTextStyle={styles.label}
+                        isChecked={this.state.isChecked}
+                        disabled={!isExtenedHoursEnabled}
+                        checkBoxColor={Colors.COLOR_GOLD}
+                        onClick={() => this.setState({ isChecked: !this.state.isChecked })}
+                    />
                     <Button
                         style={styles.button}
                         label="Review Your Order"
