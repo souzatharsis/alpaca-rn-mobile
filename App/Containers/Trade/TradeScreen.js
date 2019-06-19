@@ -94,7 +94,7 @@ class TradeScreen extends Component {
     }
 
     reviewOrder = (value) => {
-        const { shares, limitPrice, stopPrice, side, type, timeInForce, isChecked } = this.state
+        const { shares, limitPrice, stopPrice, side, type, timeInForce } = this.state
         const isExtenedHoursEnabled = type === 'limit' && timeInForce === 'day';
 
         let orderData = {
@@ -103,7 +103,7 @@ class TradeScreen extends Component {
             type,
             time_in_force: timeInForce,
             side,
-            extended_hours: isChecked && isExtenedHoursEnabled
+            extended_hours: isExtenedHoursEnabled
         }
 
         if (limitPrice) {
@@ -131,6 +131,14 @@ class TradeScreen extends Component {
             limitPrice: '',
             stopPrice: ''
         })
+    }
+
+    updateExtendedHours = () => {
+        if (this.state.type === 'limit' && this.state.timeInForce === 'day') {
+            this.setState({ type: '', timeInForce: '' });
+        } else {
+            this.setState({ type: 'limit', timeInForce: 'day' });
+        }
     }
 
     renderBody = (value) => {
@@ -203,12 +211,14 @@ class TradeScreen extends Component {
                     <TradeItem
                         label='Type'
                         items={typeItems}
+                        selectedItem={type}
                         disabled={submitted}
                         onValueChange={value => this.onTypeChanged(value)}
                     />
                     <TradeItem
                         label='Time in Force'
                         items={timeInForceItems}
+                        selectedItem={timeInForce}
                         disabled={submitted}
                         onValueChange={value => this.setState({ timeInForce: value })}
                     />
@@ -243,13 +253,12 @@ class TradeScreen extends Component {
                         />
                     </View>
                     <CheckBox
-                        style={{ marginTop: 10, opacity: isExtenedHoursEnabled ? 1 : 0 }}
+                        style={{ marginTop: 10 }}
                         rightText={"Extended Hours"}
                         rightTextStyle={styles.label}
-                        isChecked={this.state.isChecked}
-                        disabled={!isExtenedHoursEnabled}
+                        isChecked={isExtenedHoursEnabled}
                         checkBoxColor={Colors.COLOR_GOLD}
-                        onClick={() => this.setState({ isChecked: !this.state.isChecked })}
+                        onClick={this.updateExtendedHours}
                     />
                     <Button
                         style={styles.button}

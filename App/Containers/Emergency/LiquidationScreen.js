@@ -63,7 +63,8 @@ class LiquidationScreen extends Component {
                 ...item,
                 type: "market",
                 time_in_force: "gtc",
-                side
+                side,
+                qty: Math.abs(item.qty)
             };
             postOrder(updatedItem);
         })

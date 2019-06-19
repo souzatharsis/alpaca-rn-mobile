@@ -25,6 +25,10 @@ class TradeItem extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({ selectedValue: nextProps.selectedItem });
+    }
+
     render() {
         const { label, items, disabled, onValueChange } = this.props
         return (
@@ -63,6 +67,7 @@ class TradeItem extends Component {
 
 TradeItem.propTypes = {
     items: PropTypes.array.isRequired,
+    selectedItem: PropTypes.string,
     label: PropTypes.string,
     disabled: PropTypes.bool,
     onValueChange: PropTypes.func
