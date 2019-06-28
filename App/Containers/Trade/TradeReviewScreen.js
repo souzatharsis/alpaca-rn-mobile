@@ -89,6 +89,7 @@ class TradeReviewScreen extends Component {
                     <KeyValueItem keys='Time in Force' value={orderData.time_in_force} />
                     <KeyValueItem keys='Limit Price' value={limitPrice} />
                     <KeyValueItem keys='Stop Price' value={stopPrice} />
+                    <KeyValueItem keys='Extended Hours' value={orderData.extended_hours.toString()} />
                     <Button
                         style={styles.button}
                         label="Click to Submit"

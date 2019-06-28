@@ -58,13 +58,15 @@ class LiquidationScreen extends Component {
 
         resetOrderStatus()
         positions.map(item => {
+            const side = item.qty > 0 ? "sell" : "buy";
             const updatedItem = {
                 ...item,
                 type: "market",
                 time_in_force: "gtc",
-                side: "sell"
-            }
-            postOrder(updatedItem)
+                side,
+                qty: Math.abs(item.qty)
+            };
+            postOrder(updatedItem);
         })
     }
 

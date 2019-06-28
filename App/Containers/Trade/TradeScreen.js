@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import dismissKeyboard from 'react-native-dismiss-keyboard'
+import CheckBox from 'react-native-check-box'
 
 import {
     ApplicationStyles,
@@ -35,6 +36,7 @@ class TradeScreen extends Component {
         submitted: false,
         stopPriceEditable: false,
         limitPriceEditable: false,
+        isChecked: false,
         sideItems: [
             {
                 label: 'Buy',
@@ -93,6 +95,7 @@ class TradeScreen extends Component {
 
     reviewOrder = (value) => {
         const { shares, limitPrice, stopPrice, side, type, timeInForce } = this.state
+        const isExtenedHoursEnabled = type === 'limit' && timeInForce === 'day';
 
         let orderData = {
             symbol: value.symbol,
@@ -100,6 +103,7 @@ class TradeScreen extends Component {
             type,
             time_in_force: timeInForce,
             side,
+            extended_hours: isExtenedHoursEnabled
         }
 
         if (limitPrice) {
@@ -127,6 +131,14 @@ class TradeScreen extends Component {
             limitPrice: '',
             stopPrice: ''
         })
+    }
+
+    updateExtendedHours = () => {
+        if (this.state.type === 'limit' && this.state.timeInForce === 'day') {
+            this.setState({ type: '', timeInForce: '' });
+        } else {
+            this.setState({ type: 'limit', timeInForce: 'day' });
+        }
     }
 
     renderBody = (value) => {
@@ -165,6 +177,8 @@ class TradeScreen extends Component {
             color: submitted ? Colors.COLOR_GRAY : Colors.COLOR_GOLD
         }
 
+        const isExtenedHoursEnabled = type === 'limit' && timeInForce === 'day';
+
         return (
             <View style={styles.container}>
                 <KeyboardAwareScrollView
@@ -197,12 +211,14 @@ class TradeScreen extends Component {
                     <TradeItem
                         label='Type'
                         items={typeItems}
+                        selectedItem={type}
                         disabled={submitted}
                         onValueChange={value => this.onTypeChanged(value)}
                     />
                     <TradeItem
                         label='Time in Force'
                         items={timeInForceItems}
+                        selectedItem={timeInForce}
                         disabled={submitted}
                         onValueChange={value => this.setState({ timeInForce: value })}
                     />
@@ -236,6 +252,14 @@ class TradeScreen extends Component {
                             maxLength={20}
                         />
                     </View>
+                    <CheckBox
+                        style={{ marginTop: 10 }}
+                        rightText={"Extended Hours"}
+                        rightTextStyle={styles.label}
+                        isChecked={isExtenedHoursEnabled}
+                        checkBoxColor={Colors.COLOR_GOLD}
+                        onClick={this.updateExtendedHours}
+                    />
                     <Button
                         style={styles.button}
                         label="Review Your Order"
