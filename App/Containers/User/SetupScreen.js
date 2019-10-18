@@ -48,14 +48,17 @@ class SetupScreen extends Component {
         let apiKey = ''
         let secretKey = ''
         let baseUrl = ''
+        let saveApiKey = false;
         try {
             apiKey = await AsyncStorage.getItem('apiKey')
             secretKey = await AsyncStorage.getItem('secretKey')
             baseUrl = await AsyncStorage.getItem('baseUrl')
+            saveApiKey = await AsyncStorage.getItem('saveApiKey')
             this.setState({
                 apiKey,
                 secretKey,
-                baseUrl
+                baseUrl,
+                saveApiKey: saveApiKey === "1"
             })
         } catch (error) {
             console.log(error.message);
@@ -83,6 +86,7 @@ class SetupScreen extends Component {
             AsyncStorage.removeItem('secretKey')
         }
         AsyncStorage.setItem('baseUrl', baseUrl)
+        AsyncStorage.setItem('saveApiKey', saveApiKey ? "1" : "0")
 
         this.props.appStartAttempt(data)
         this.props.navigation.navigate('Tab')
