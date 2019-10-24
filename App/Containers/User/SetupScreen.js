@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import RNPickerSelect from 'react-native-picker-select'
+import CheckBox from 'react-native-check-box'
 
 import AppActions from '../../Redux/AppRedux'
 import {
@@ -26,6 +27,7 @@ class SetupScreen extends Component {
 
         this.inputRefs = {}
         this.state = {
+            saveApiKey: false,
             apiKey: '',
             secretKey: '',
             baseUrl: '',
@@ -46,14 +48,17 @@ class SetupScreen extends Component {
         let apiKey = ''
         let secretKey = ''
         let baseUrl = ''
+        let saveApiKey = false;
         try {
             apiKey = await AsyncStorage.getItem('apiKey')
             secretKey = await AsyncStorage.getItem('secretKey')
             baseUrl = await AsyncStorage.getItem('baseUrl')
+            saveApiKey = await AsyncStorage.getItem('saveApiKey')
             this.setState({
                 apiKey,
                 secretKey,
-                baseUrl
+                baseUrl,
+                saveApiKey: saveApiKey === "1"
             })
         } catch (error) {
             console.log(error.message);
@@ -65,7 +70,7 @@ class SetupScreen extends Component {
      * configure api with api key and base url
      */
     getStarted = () => {
-        const { apiKey, secretKey, baseUrl } = this.state
+        const { apiKey, secretKey, baseUrl, saveApiKey } = this.state
 
         var data = {
             apiKey,
@@ -73,9 +78,15 @@ class SetupScreen extends Component {
             baseUrl,
         }
 
-        AsyncStorage.setItem('apiKey', apiKey)
-        AsyncStorage.setItem('secretKey', secretKey)
+        if (saveApiKey) {
+            AsyncStorage.setItem('apiKey', apiKey)
+            AsyncStorage.setItem('secretKey', secretKey)
+        } else {
+            AsyncStorage.removeItem('apiKey')
+            AsyncStorage.removeItem('secretKey')
+        }
         AsyncStorage.setItem('baseUrl', baseUrl)
+        AsyncStorage.setItem('saveApiKey', saveApiKey ? "1" : "0")
 
         this.props.appStartAttempt(data)
         this.props.navigation.navigate('Tab')
@@ -93,7 +104,7 @@ class SetupScreen extends Component {
     }
 
     render() {
-        const { apiKey, secretKey, baseUrl, baseUrlItems } = this.state
+        const { apiKey, secretKey, baseUrl, baseUrlItems, saveApiKey } = this.state
 
         return (
             <View style={styles.mainContainer}>
@@ -147,6 +158,14 @@ class SetupScreen extends Component {
                         }}
                     />
                 </View>
+                <CheckBox
+                    style={{ marginTop: 15 }}
+                    rightText={"Save API Key"}
+                    rightTextStyle={styles.label}
+                    isChecked={saveApiKey}
+                    checkBoxColor={Colors.COLOR_GOLD}
+                    onClick={() => this.setState({ saveApiKey: !saveApiKey })}
+                />
                 <Button
                     style={styles.button}
                     label="Get Started"
